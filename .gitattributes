@@ -1,0 +1,7 @@
+# Force LF for shell scripts so they run on macOS/Linux without ^M errors.
+*.sh   text eol=lf
+# PowerShell tolerates either; use CRLF by convention on Windows.
+*.ps1  text eol=crlf
+# Markdown / docs: LF.
+*.md   text eol=lf
+LICENSE text eol=lf
