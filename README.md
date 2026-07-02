@@ -81,48 +81,48 @@ The installer copies the skill to `~/.claude/skills/cleanup-temp/`, the hook to 
 }
 ```
 
-Restart Claude Code.
+Restart Claude Code.   重启克劳德代码。
 
-## Usage
+## Usage   # #使用
 
-Use Claude Code as usual — there's nothing special to do. When Claude creates intermediate files it puts them in `.claude/tmp/`; when it finishes a task, it asks you what to clean up.
+Use Claude Code as usual — there's nothing special to do. When Claude creates intermediate files it puts them in `.claude/tmp/`; when it finishes a task, it asks you what to clean up.像往常一样使用克劳德代码，没有什么特别的事情要做。当Claude创建中间文件时，它会把它们放在`.claude/tmp/`中；当它完成一项任务时，它会询问你需要清理哪些内容。
 
-You can also invoke the skill manually any time with `/cleanup-temp`.
+You can also invoke the skill manually any time with `/cleanup-temp`.你也可以在任何时候使用`/cleanup-temp`手动调用该技能。
 
-**Tip:** add `.claude/tmp/` to your project's `.gitignore` so temp files never get committed:
+**Tip:** add `.claude/tmp/` to your project's `.gitignore` so temp files never get committed:**提示：**添加`. js `。Claude /tmp/`到你项目的`。Gitignore `这样临时文件就不会被提交：
 ```
 .claude/tmp/
 ```
 
-## Safety
+## Safety   # #安全
 
-- The hook and skill **only ever operate inside `.claude/tmp/`** (excluding `keep/`).
-- **Nothing is ever deleted silently** — Claude always lists the files and waits for your explicit confirmation.
-- Files you decline to delete are moved to `.claude/tmp/keep/` and not re-offered.
-- If `.claude/tmp/` contains something Claude didn't create, it surfaces it to you instead of deleting.
-- The skill never uses broad `rm -rf` / wildcard deletes — only named files you've approved.
+- The hook and skill **only ever operate inside `.claude/tmp/`** (excluding `keep/`).-钩子和技能**只适用于内部。Claude /tmp/`**（不包括`keep/`）。
+- **Nothing is ever deleted silently** — Claude always lists the files and waits for your explicit confirmation.- **不会静默删除任何内容** &mdash； Claude总是列出文件并等待你的确认。
+- Files you decline to delete are moved to `.claude/tmp/keep/` and not re-offered.-你拒绝删除的文件被移动到`。Claude /tmp/keep/`并且没有被重新报价。
+- If `.claude/tmp/` contains something Claude didn't create, it surfaces it to you instead of deleting.-如果`。` claude/tmp/`包含了一些claude没有创建的东西，它会显示给你，而不是删除。
+- The skill never uses broad `rm -rf` / wildcard deletes — only named files you've approved.-该技能从不使用宽泛的`rm -rf   rm射频` /通配符删除&mdash；只命名文件，你已经批准。
 
-## Uninstall
+## Uninstall   # #卸载
 
-1. Remove the `Stop` hook entry whose command contains `cleanup-temp-stop` from `~/.claude/settings.json`.
-2. Delete `~/.claude/skills/cleanup-temp/` and `~/.claude/hooks/cleanup-temp-stop.*`.
+1. Remove the `Stop` hook entry whose command contains `cleanup-temp-stop` from `~/.claude/settings.json`.1. 从`~/.claude/settings.json`中删除`Stop`钩子项，其命令包含`cleanup-temp-stop`。
+2. Delete `~/.claude/skills/cleanup-temp/` and `~/.claude/hooks/cleanup-temp-stop.*`.2. ~ /删除”。`. Claude /skills/cleanup-temp/`和`~/. Claude /hooks/cleanup-temp-stop.*`
 
-## Project structure
+## Project structure   ##项目结构
 
 ```
-SKILL.md                         # the skill definition
-hooks/cleanup-temp-stop.sh       # Stop hook (macOS/Linux)
-hooks/cleanup-temp-stop.ps1      # Stop hook (Windows)
-install.sh / install.ps1         # one-command installer
+SKILL.md                         # the skill definition技能。md#技能定义
+hooks/cleanup-temp-stop.sh       # Stop hook (macOS/Linux)hooks/cleanup-temp-stop.sh #停止hook （macOS/Linux）
+hooks/cleanup-temp-stop.ps1      # Stop hook (Windows)钩子/ cleanup-temp-stop。ps1 #停止钩子（Windows）
+install.sh / install.ps1         # one-command installerinstall.sh /安装。Ps1 #单命令安装程序
 LICENSE                          # MIT
 ```
 
-## How Claude Code skills & hooks work
+## How Claude Code skills & hooks work## Claude Code skills &； hooks是如何工作的
 
-- A **skill** is a Markdown file with frontmatter that Claude reads when relevant. It carries the cleanup logic and safety rules.
-- A **Stop hook** is a command Claude Code runs every time Claude finishes responding. Here it checks the temp dir and, if non-empty, blocks the stop with a reminder that drives Claude to the skill. Hooks are configured in `settings.json`.
+- A **skill** is a Markdown file with frontmatter that Claude reads when relevant. It carries the cleanup logic and safety rules.- **skill**是一个包含frontmatter的Markdown文件，Claude会在相关的时候阅读。它带有清理逻辑和安全规则。
+- A **Stop hook** is a command Claude Code runs every time Claude finishes responding. Here it checks the temp dir and, if non-empty, blocks the stop with a reminder that drives Claude to the skill. Hooks are configured in `settings.json`.- **停止钩子**是Claude代码在每次完成响应时运行的命令。在这里，它检查了temp目录，如果非空，则阻止停止，并提示Claude使用技能。Hooks在`settings.json`中配置。
 
-## License
+## License   # #许可证
 
 MIT © foogtil
 
