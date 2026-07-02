@@ -1,8 +1,8 @@
 # claude-code-cleanup-temp
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) **skill + Stop hook** that automatically reminds Claude to clean up the temporary/intermediate files it creates while working on a task.
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) **skill + Stop hook** that automatically reminds Claude to clean up the temporary/intermediate files it creates while working on a task.一个[Claude代码](https://docs.anthropic.com/en/docs/claude-code) **技能停止钩子**，它自动提醒Claude清理它在处理任务时创建的临时/中间文件。
 
-When Claude finishes a task, if any throwaway scratch files are sitting in `.claude/tmp/`, the Stop hook nudges Claude to list them, ask you which to delete, and remove only the ones you confirm. **No silent deletion, no touching files outside the temp directory.**
+When Claude finishes a task, if any throwaway scratch files are sitting in `.claude/tmp/`, the Stop hook nudges Claude to list them, ask you which to delete, and remove only the ones you confirm. **No silent deletion, no touching files outside the temp directory.**当Claude完成一项任务时，是否有任何一次性的临时文件。claude/tmp/ '时，停止钩子会轻推claude列出它们，询问你要删除哪些，并只删除你确认的那些。**禁止静默删除，禁止触摸临时目录之外的文件。**
 
 > Community project — not affiliated with Anthropic.
 
@@ -68,7 +68,7 @@ The installer copies the skill to `~/.claude/skills/cleanup-temp/`, the hook to 
     ]
   }
 }
-```
+```一个[Claude代码](https://docs.anthropic.com/en/docs/claude-code) **技能停止钩子**，它自动提醒Claude清理它在处理任务时创建的临时/中间文件。
 
 **Windows**
 ```json
@@ -125,3 +125,7 @@ LICENSE                          # MIT
 ## License
 
 MIT © foogtil
+
+## Contact information
+
+Please contact me via the email address below if you have any questions: lhy_ynmzdx@qq.com
